@@ -20,9 +20,16 @@ const OfxToJsonConverter: React.FC = () => {
   };
 
   return (
-    <div className="text-gray-50">
+    <div className="flex flex-col gap-4 text-gray-50">
       <Input type="file" accept=".ofx" onChange={handleFileUpload} />
-      {jsonResult && <pre>{JSON.stringify(jsonResult, null, 2)}</pre>}
+      {jsonResult && (
+        <div>
+          <h2>Resultado:</h2>
+          <pre className="flex flex-col overflow-auto max-w-[80vw]">
+            {JSON.stringify(jsonResult, null, 2)}
+          </pre>
+        </div>
+      )}
     </div>
   );
 };
